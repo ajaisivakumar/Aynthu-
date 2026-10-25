@@ -54,11 +54,12 @@ app = FastAPI(
 # CORS — uses allowed_origins from config (supports localhost + Render URL)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.allowed_origins,
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # API routes
 app.include_router(api_router, prefix="/api")
